@@ -26,7 +26,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -37,7 +37,15 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            'amount' => 'required',
+            'quantity' => 'required',
+            'item' => 'required',
+        ]);
+        $newTask = Task::create($data);
+
+        return redirect(route('tasks.index'));
     }
 
     /**
@@ -59,7 +67,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        return view('tasks.edit', ['tasks' => $task]);
     }
 
     /**
@@ -71,7 +79,15 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            'amount' => 'required',
+            'quantity' => 'required',
+            'item' => 'required',
+        ]);
+        $newTask = Task::create($data);
+
+        return redirect(route('tasks.index'))->with('success', 'product Updated Succesffully');
     }
 
     /**

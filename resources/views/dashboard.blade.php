@@ -9,7 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-<form>
+<form method="post" action="{{route('tasks.store')}}">
+    @csrf 
+    @method('post')
     <div class="space-y-12">  
       <div class="border-b border-gray-900/10 pb-12">
         <h2 class="text-base font-semibold leading-7 text-gray-900">Your Order Information</h2>
