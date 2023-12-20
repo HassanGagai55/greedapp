@@ -39,10 +39,11 @@ class TaskController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'amount' => 'required',
+            'amount' => 'required|numeric|min:0',
             'item' => 'required',
-            'quantity' => 'required',
+            'quantity' => 'required|numeric|min:1',
         ]);
+        
         $newTask = Task::create($data);
 
         return redirect(route('task.index'));
