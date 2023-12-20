@@ -40,12 +40,12 @@ class TaskController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'amount' => 'required',
-            'quantity' => 'required',
             'item' => 'required',
+            'quantity' => 'required',
         ]);
         $newTask = Task::create($data);
 
-        return redirect(route('tasks.index'));
+        return redirect(route('task.index'));
     }
 
     /**
@@ -67,7 +67,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        return view('tasks.edit', ['tasks' => $task]);
+        // return view('tasks.edit', ['tasks' => $task]);
     }
 
     /**
@@ -82,12 +82,12 @@ class TaskController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'amount' => 'required',
-            'quantity' => 'required',
             'item' => 'required',
+            'quantity' => 'required',
         ]);
         $newTask = Task::create($data);
 
-        return redirect(route('tasks.index'))->with('success', 'product Updated Succesffully');
+        return redirect(route('task.index'))->with('success', 'product Updated Succesffully');
     }
 
     /**

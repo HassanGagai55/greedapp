@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('amount');
+            $table->integer('amount');
+            $table->string('item');
             $table->integer('quantity');
-            $table->integer('item');
             $table->timestamps();
         });
     }
